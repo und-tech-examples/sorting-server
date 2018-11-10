@@ -1,0 +1,28 @@
+{
+  "name": "sorting-server",
+  "version": "1.0.0",
+  "description": "A fancy server to choose will make the coffee",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/erikfloresq/sorting-server.git"
+  },
+  "keywords": [
+    "node",
+    "coffee"
+  ],
+  "author": "Erik Flores",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erikfloresq/sorting-server/issues"
+  },
+  "homepage": "https://github.com/erikfloresq/sorting-server#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.1.1"
+  }
+}

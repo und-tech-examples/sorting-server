@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Hi I'm the sorting server</h1>
+        <a id="sortAction" href="#">Sort!</a>
+    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();
+        let sortAction = document.getElementById('sortAction');
+        sortAction.addEventListener('click', function(event) {
+            event.preventDefault();
+            socket.emit('winParticipant');
+        }); 
+    </script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Hi Future coffe maker ️️☕️</h1>
+        <p>Your name:</p>
+        <input id="coffeMakerName" type="text">
+        <a id="sendButton" href="#">Add me 🥺!</a>
+        </form>
+        <h2>Participants</h2>
+        <ul id="participants"></ul>
+        <div id="win"></div>
+    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io();
+        let sendButton = document.getElementById('sendButton');
+        let coffeMakerName = document.getElementById('coffeMakerName');
+
+        sendButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            let coffeMakerNameValue = coffeMakerName.value;
+            console.log(coffeMakerNameValue)
+            socket.emit('sendCoffeMakerName', coffeMakerNameValue);
+        });
+
+        socket.on('updateParticipants', function(data) {
+            let participantsElement = document.getElementById('participants');
+            let participant = document.createElement('li')
+            let participantNode = document.createTextNode(data);
+            participant.appendChild(participantNode);
+            participantsElement.appendChild(participant);
+        });
+
+        socket.on('updateWinParticipant', function(data) {
+            console.log("gano -->" + data);
+            let winElement = document.getElementById('win');
+            let pElement = document.createElement('p');
+            let pElementNode = document.createTextNode(data);
+            pElement.appendChild(pElementNode);
+            winElement.appendChild(pElement);
+        });
+    </script>
+</html>
